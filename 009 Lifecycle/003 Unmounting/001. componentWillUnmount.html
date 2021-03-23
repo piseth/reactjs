@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1" />
+    <title>React App</title>
+  </head>
+  <body>
+
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <script type="text/babel">
+        class Container extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {show: true};
+            }
+            delHeader = () => {
+                this.setState({show: false});
+            }
+            render() {
+                let myheader;
+                if (this.state.show) {
+                myheader = <Child />;
+                };
+                return (
+                <div>
+                {myheader}
+                <button type="button" onClick={this.delHeader}>Delete Header</button>
+                </div>
+                );
+            }
+            }
+
+            class Child extends React.Component {
+            componentWillUnmount() {
+                alert("The component named Header is about to be unmounted.");
+            }
+            render() {
+                return (
+                <h1>Hello World!</h1>
+                );
+            }
+        }
+
+        ReactDOM.render(<Container />, document.getElementById('root'));
+
+    </script>
+  </body>
+</html>

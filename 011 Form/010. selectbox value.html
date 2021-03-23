@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1" />
+    <title>React App</title>
+  </head>
+  <body>
+
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <script type="text/babel">
+        class MyForm extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    mycar: 'Volvo'
+                };
+            }
+            render() {
+                return (
+                    <form>
+                    <select defaultValue={this.state.mycar}>
+                    <option value="Ford">Ford</option>
+                    <option value="Volvo">Volvo</option>
+                    <option value="Fiat">Fiat</option>
+                    </select>
+                    </form>
+                );
+            }
+        }
+        
+        ReactDOM.render(<MyForm />, document.getElementById('root'));
+    </script>
+  </body>
+</html>

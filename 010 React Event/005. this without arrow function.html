@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1" />
+    <title>React App</title>
+  </head>
+  <body>
+
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <script type="text/babel">
+        class Football extends React.Component {
+            constructor(props) {
+                super(props);
+                this.shoot = this.shoot.bind(this);
+            }
+            shoot() {
+                alert(this);
+                /*
+                Thanks to the binding in the constructor function,
+                the 'this' keyword now refers to the component object
+                */
+            }
+            render() {
+                return (
+                <button onClick={this.shoot}>Take the shot!</button>
+                );
+            }
+        }
+
+        ReactDOM.render(<Football />, document.getElementById('root'));
+
+
+    </script>
+  </body>
+</html>
